@@ -1,0 +1,24 @@
+import oracledb
+
+
+connect = oracledb.connect (
+user = "BD150224431", 
+password = 'Bjgcu10',
+dsn = "bd-acd/xe"
+)
+
+print ('conectado com sucesso')
+#conexao feita
+
+cursor = connect.cursor()
+ #
+cursor.execute ("""
+                CREATE TABLE teste(
+                id number(8),
+                nome varchar2(50)
+                )""")
+
+cursor.execute ("INSERT INTO teste (id,nome) VALLUES (1,'dalva')")
+#
+#
+connect.commit()
